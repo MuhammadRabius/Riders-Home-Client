@@ -1,10 +1,16 @@
-import logo from './logo.svg';
+
+import { Routes } from 'react-router-dom';
 import './App.css';
+import Home from './components/Home/Home';
 
 function App() {
   return (
-    <div className="App">
-      <button class="btn btn-primary">Button</button>
+    <div >
+     <Home></Home>
+     <Routes>
+
+
+     </Routes>
     </div>
   );
 }
