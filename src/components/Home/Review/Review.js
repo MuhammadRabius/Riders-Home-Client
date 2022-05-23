@@ -10,10 +10,10 @@ const Review = () => {
                   <h2 className="card-subtitle font-thin">OUR HAPPY CLIENT</h2>
                   <div className='rating mx-auto '>
                   <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400"  />
+                  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
                   <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                   <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked/>
+                  <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
                   </div>
                   <p className='font-extralight'>Of course, I would recommend Bike BD page to all bike lovers in Bangladesh. All the genuine reviews and update related to all brands are my favourite.</p>
                   <h4 className="card-subtitle mb-4">Sayed Fahim Akhter</h4>

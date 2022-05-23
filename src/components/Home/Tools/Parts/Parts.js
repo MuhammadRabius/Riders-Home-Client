@@ -10,12 +10,12 @@ const Parts = ({part}) => {
       }
       return (
             <div>
-                  <div className="card w-96 bg-base-100 shadow-xl">
-                              <figure><img src={img} alt="Shoes" /></figure>
+                  <div className="card w-96  bg-base-100 shadow-xl">
+                              <figure><img style={{height:"200px",width:"200px"}} src={img} alt="Shoes" /></figure>
                               <div class="card-body">
                               <h2 class="card-title">{name}</h2>
-                              <p>{description}</p>
-                              <p>Unit Per Price:{price} BDT</p>
+                              <p>{description.slice(0,40)}...</p>
+                              <p>Per Unit Price:{price} BDT</p>
                               <p>Available Quantity{availableQuantity} Pcs</p>
                               <p>Minimum Order {minimumOrder} Pcs</p>
                               <div class="card-actions justify-end">
