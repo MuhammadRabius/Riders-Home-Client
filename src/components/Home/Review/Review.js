@@ -3,7 +3,7 @@ import bg from '../../../assets/reviewBg.jpg'
 const Review = () => {
       return (       
             <div className='text-center' >
-                  <h1 className='text-center'>Review Section</h1>
+                  <h1 className='text-center text-accent font-extrabold '>Review Section</h1>
                   <div class="card w-96 m-4 shadow-xl image-full">
                   <figure><img src={bg} alt="review section background img" /></figure>
                   <div class="card-body">
