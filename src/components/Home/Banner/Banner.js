@@ -1,9 +1,10 @@
 import React from 'react';
+import banner from '../../../assets/banner.jpg'
 
 const Banner = () => {
       return (
-            <div>
-              <h1> This is banner section</h1>
+            <div >
+            <img className='h-screen w-full' src={banner} alt="Banner section of Riders Home" />
             </div>
       );
 };
