@@ -1,6 +1,9 @@
+
 import React from 'react';
+
 import { AiFillPhone,AiTwotoneMail,AiOutlineUserAdd,AiOutlineCustomerService } from "react-icons/ai";
 import logo from '../../../assets/logo.png'
+import { Link } from 'react-router-dom';
 
 const TopBanner = () => {
       return (
@@ -14,28 +17,23 @@ const TopBanner = () => {
                   <div>
                    <img className='w-56 ml-12' src={logo} alt="Riders-Home Logo" />
                    </div>
-                  <div >
-                  <div className="form-control mt-20 ">
-                  <div class="input-group">
-                  <input className='w-96 border-2'  type="text" placeholder=" Search…" class="input input-bordered" />
-                  <button class="btn btn-square">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                  </button>
                   
+                  <div className='mt-20 '>
+                        <input className='border border-2 p-2 w-80 rounded-xl' type="search" name="search" placeholder='Search...' id="" />
+                        <button className='border border-2 ml-4 p-2 hover:bg-slate-300 rounded-xl' type="submit">Search</button>
                   </div>
-                  </div>
-                    
-                  </div>
+                 
                 
                   <div className=' flex justify-center mt-20 gap-10 '>
                         <div>
                         <AiOutlineUserAdd className='ml-8'/>
-                        <p>My Account</p>
+                        <Link to={'/login'} class="link text-black link-hover">My Account</Link>
                         </div>
                         
                         <div>
                         <AiOutlineCustomerService className='ml-8'/>
-                        <p>Customer Help </p>
+                        <Link to={'/customerhelp'} class="link text-black link-hover">Customer Help</Link>
+                        <p> </p>
                         </div>
 
                   </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Container, Nav, Navbar} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Navber = () => {
@@ -10,19 +10,13 @@ const Navber = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-                  <Nav.Link as={Link} to='/'>Parts</Nav.Link>
-                  <Nav.Link as={Link} to='/'>Blog</Nav.Link>
-                  <NavDropdown title="Spare Parts" id="collasible-nav-dropdown">
-                  <NavDropdown.Item as={Link} to='/'>Riders Gear & Accessories </NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to='/'>Parts</NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to='/'>Tyres and Helmets</NavDropdown.Item>
-                  </NavDropdown>
+                  <Nav.Link as={Link} to='/motorparts'>Motor Parts</Nav.Link>
+                  <Nav.Link as={Link} to='/blog'>Blog</Nav.Link>
+                  <Nav.Link as={Link} to='/myportfolio'>My Protfolio</Nav.Link>
             </Nav>
             <Nav>
-                  <Nav.Link as={Link} to='/'>My Protfolio</Nav.Link>
-                  <Nav.Link as={Link} to='/'>
-                   Blog
-                  </Nav.Link>
+                  
+                  <Nav.Link as={Link} to='/'> Blog </Nav.Link>
             </Nav>
             </Navbar.Collapse>
             </Container>

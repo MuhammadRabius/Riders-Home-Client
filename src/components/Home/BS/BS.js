@@ -2,7 +2,7 @@ import React from 'react';
 
 const BS = () => {
       return (
-            <div>
+            <div className='my-10'>
                   <h1 className='text-center  text-accent font-extrabold'>Why Choose Us?</h1>
                   <blockquote className='text-center'>
                         
