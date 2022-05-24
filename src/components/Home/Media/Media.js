@@ -4,9 +4,9 @@ import tipsTwo from '../../../assets/tipsBG (2).jpg'
 
 const Media = () => {
       return (
-            <div className='m-10 '>
+            <div className='m-10  '>
                   <h1 className='text-teal-400 font-bold text-center m-4'>TIPS ON THE MOTORCYCLE</h1>
-                  <div className='flex justify-center items-center gap-4 m-4 bg-stone-50'>
+                  <div className='lg:flex justify-center items-center p-2 mb-2 lg:gap-4 lg:m-4 bg-stone-50'>
                         <div class="hero min-h-screen">
                         <div class="hero-overlay bg-opacity-100"></div>
                         <div class="hero-content text-center text-neutral-content">
@@ -20,7 +20,7 @@ const Media = () => {
                         </div>
                         </div>
                         
-          <div class="hero min-h-screen ">
+          <div class="hero min-h-screen mt-2">
                         <div class="hero-overlay bg-opacity-100"></div>
                         <div class="hero-content text-center text-neutral-content">
                         <div class="max-w-md">
@@ -36,7 +36,7 @@ const Media = () => {
                   
                   </div>
                  <div class="card-actions justify-end">
-                  <button class="btn btn-primary">Read More</button>
+                  <button class="btn btn-accent">Read More</button>
                   </div>
             </div>
       );

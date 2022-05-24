@@ -19,12 +19,12 @@ const PlaceOrder = () => {
             const maxOrderPsc=part.availableQuantity;
             if(userOrderPcs<minOrderPsc ){
                   return toast.error(`Minimum Order For this Product: ${minOrderPsc} Pcs`)
-                  console.log('checked min')
+                  
             }
             
             else if(userOrderPcs>maxOrderPsc){
                   return toast.error(`Available Quantity: ${maxOrderPsc} Pcs.Please contact us for your bunk order`)
-                  console.log('checked max')
+                  
             }
 
             else{
@@ -44,9 +44,9 @@ const PlaceOrder = () => {
                                     <div class="card-body items-center text-center">
                                     <h2 class="card-title">{part.name}</h2>
                                     <p>{part.description}</p>
-                                    <p>Per Unit Price:{part.price} BDT</p>
-                                    <p>Available Quantity{part.availableQuantity} Pcs</p>
-                                    <p>Minimum Order {part.minimumOrder} Pcs</p>
+                                    <p className='font-bold'>Per Unit Price:  {part.price} BDT</p>
+                                    <p className='font-bold'>Available Quantity  {part.availableQuantity} Pcs</p>
+                                    <p className='font-bold'>Minimum Order  {part.minimumOrder} Pcs</p>
                                     </div>
                                </div>
                         

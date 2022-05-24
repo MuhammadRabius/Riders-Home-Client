@@ -15,9 +15,9 @@ const Parts = ({part}) => {
                               <div class="card-body">
                               <h2 class="card-title">{name}</h2>
                               <p>{description.slice(0,40)}...</p>
-                              <p>Per Unit Price:{price} BDT</p>
-                              <p>Available Quantity{availableQuantity} Pcs</p>
-                              <p>Minimum Order {minimumOrder} Pcs</p>
+                              <p className='font-bold'>Per Unit Price: {price} BDT</p>
+                              <p className='font-bold'>Available Quantity {availableQuantity} Pcs</p>
+                              <p className='font-bold'>Minimum Order  {minimumOrder} Pcs</p>
                               <div class="card-actions justify-end">
                               <button onClick={()=>handlePlaceOrder(_id)} class="btn btn-accent">Place Order</button>
                               </div>

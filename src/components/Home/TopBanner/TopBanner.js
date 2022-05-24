@@ -11,18 +11,18 @@ const TopBanner = () => {
       const [user]=useAuthState(auth);
       return (
             <div>
-                  <div className='flex justify-around mt-2 font-thin'>
+                  <div className='lg:flex  lg:justify-around mt-2 ml-20 font-thin'>
                         <p>1/2, Koshaituli Lane, Bongshal Road, Dhaka-1100</p>
-                        <p className='flex items-center gap-2'><AiFillPhone/>0000000000</p>
-                        <p className='flex items-center gap-2'><AiTwotoneMail/>support.ridershome@gmail.com</p>
+                        <p className='flex items-center ml-20 gap-2'><AiFillPhone/>0000000000</p>
+                        <p className='flex items-center ml-20gap-2'><AiTwotoneMail/> support.ridershome@gmail.com</p>
                   </div>
-                  <div className='grid grid-cols-3'>
+                  <div className='grid grid-cols-1 lg:grid-cols-3'>
                   <div>
-                   <img className='w-56 ml-12' src={logo} alt="Riders-Home Logo" />
+                   <img className='w-56 ml-20 lg:ml-12' src={logo} alt="Riders-Home Logo" />
                    </div>
                   
                   <div className='mt-20 '>
-                        <input className='border border-2 p-2 w-80 rounded-xl' type="search" name="search" placeholder='Search...' id="" />
+                        <input className='border border-2 p-2 ml-2 w-80 rounded-xl' type="search" name="search" placeholder='Search...' id="" />
                         <button className='border border-2 ml-4 p-2 hover:bg-slate-300 rounded-xl' type="submit">Search</button>
                   </div>
                  
