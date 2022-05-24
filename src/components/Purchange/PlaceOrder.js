@@ -4,13 +4,31 @@ import usePartsById from './../Hooks/usePartsById';
 import { useForm } from "react-hook-form";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
 
 const PlaceOrder = () => {
       const {partsId}=useParams();
       const [part]=usePartsById(partsId);
       const [user]=useAuthState(auth);
       const { register, handleSubmit } = useForm();
-      const onSubmit = data => console.log(data);
+      const onSubmit = data => {
+            const userOrderPcs = data.minquentity;
+            const minOrderPsc=part.minimumOrder;
+            const maxOrderPsc=part.availableQuantity;
+            if(userOrderPcs<minOrderPsc ){
+                  return toast(`Minimum Order For this Product: ${minOrderPsc} Pcs`)
+                  console.log('checked min')
+            }
+            
+            else if(userOrderPcs>maxOrderPsc){
+                  return toast(`Available Quantity: ${maxOrderPsc} Pcs.Please contact us for your bunk order`)
+                  console.log('checked max')
+            }
+
+            else{
+                     
+            }
+      };
     
       return (
             
@@ -38,7 +56,7 @@ const PlaceOrder = () => {
                               <form className='  flex flex-col  gap-2 mt-4' onSubmit={handleSubmit(onSubmit)}>
                               <input type="email" name="email" value={user?.email} id="email" className='border-2 p-2' {...register("email")} readOnly/>
                               <input type="text" name="name" value={user?.displayName} id="name" className='border-2 p-2' {...register("name")} readOnly/>
-                              <input className='border-2 p-2' type="number" {...register("stock")}  placeholder='Please Order Quantity'/>
+                              <input className='border-2 p-2' type="number" {...register("minquentity")}  placeholder='Please Order Quantity'/>
                               <input className=' p-2 bg-accent text-white' type="submit" value='Purchase Now' />
                               </form>
                         </div>

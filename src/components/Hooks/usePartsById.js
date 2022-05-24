@@ -4,7 +4,7 @@ const usePartsById =(partsId)=>{
       const [part,setPart] =useState({});
 
       useEffect(()=>{
-         fetch(`http://localhost:5000/parts/${partsId}`)
+         fetch(`https://limitless-woodland-16405.herokuapp.com/parts/${partsId}`)
          .then(res=>res.json())
          .then(data=>setPart(data))
       

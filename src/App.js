@@ -14,6 +14,7 @@ import Login from './components/UserLifeCycle/Login/Login';
 import Registation from './components/UserLifeCycle/Registation/Registation';
 import CustomerHelp from './components/CustomerHelp/CustomerHelp';
 import { ToastContainer } from 'react-toastify';
+import RequireAuth from './components/UserLifeCycle/RequireAuth/RequireAuth'
 function App() {
   return (
     <div >
@@ -21,7 +22,11 @@ function App() {
       <Navber/>
      <Routes>
        <Route path='/' element={<Home/>}> </Route>
-       <Route path='/placeorder/:partsId' element={<PlaceOrder/>}> </Route>
+       <Route path='/placeorder/:partsId' element={
+         <RequireAuth>
+           <PlaceOrder/>
+         </RequireAuth>
+       }> </Route>
        <Route path='/motorparts' element={<MotorParts/>}> </Route>
        <Route path='/blog' element={<Blog/>}> </Route>
        <Route path='/myportfolio' element={<MyPortfolio/>}> </Route>
