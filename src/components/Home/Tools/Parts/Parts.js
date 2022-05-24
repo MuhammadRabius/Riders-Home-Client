@@ -5,8 +5,8 @@ const Parts = ({part}) => {
       const navigate =useNavigate();
       const {_id,name,description,price,availableQuantity,minimumOrder,img}=part;
       
-      const handlePlaceOrder=()=>{
-            navigate('/placeorder')
+      const handlePlaceOrder=(id)=>{
+            navigate(`/placeorder/${id}`)
       }
       return (
             <div>
@@ -19,7 +19,7 @@ const Parts = ({part}) => {
                               <p>Available Quantity{availableQuantity} Pcs</p>
                               <p>Minimum Order {minimumOrder} Pcs</p>
                               <div class="card-actions justify-end">
-                              <button onClick={handlePlaceOrder} class="btn btn-accent">Place Order</button>
+                              <button onClick={()=>handlePlaceOrder(_id)} class="btn btn-accent">Place Order</button>
                               </div>
                               </div>
                               </div>

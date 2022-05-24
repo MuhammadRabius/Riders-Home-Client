@@ -21,7 +21,7 @@ function App() {
       <Navber/>
      <Routes>
        <Route path='/' element={<Home/>}> </Route>
-       <Route path='/placeorder' element={<PlaceOrder/>}> </Route>
+       <Route path='/placeorder/:partsId' element={<PlaceOrder/>}> </Route>
        <Route path='/motorparts' element={<MotorParts/>}> </Route>
        <Route path='/blog' element={<Blog/>}> </Route>
        <Route path='/myportfolio' element={<MyPortfolio/>}> </Route>
