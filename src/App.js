@@ -15,6 +15,14 @@ import Registation from './components/UserLifeCycle/Registation/Registation';
 import CustomerHelp from './components/CustomerHelp/CustomerHelp';
 import { ToastContainer } from 'react-toastify';
 import RequireAuth from './components/UserLifeCycle/RequireAuth/RequireAuth'
+import MyProfile from './components/UserDashboard/MyProfile/MyProfile';
+import Dashboard from './components/UserDashboard/Dashboard';
+import MyOrder from './components/UserDashboard/Myorder/MyOrder';
+import AddReview from './components/UserDashboard/AddReview/AddReview';
+import AddProduct from './components/UserDashboard/AddAProduct/AddProduct';
+import MP from './components/UserDashboard/ManageProducts/MP';
+import Users from './components/UserDashboard/User/Users';
+import Paymet from './components/UserDashboard/Payment/Paymet';
 function App() {
   return (
     <div >
@@ -33,6 +41,17 @@ function App() {
        <Route path='/login' element={<Login/>}> </Route>
        <Route path='/registation' element={<Registation/>}> </Route>
        <Route path='/customerhelp' element={<CustomerHelp/>}> </Route>
+       <Route path='/myprofile' element={<MyProfile/>}> </Route>
+       <Route  path='/dashboard' element={<RequireAuth><Dashboard/></RequireAuth>}> 
+          <Route index element={<MyProfile/>}> </Route>
+          <Route path='myorder' element={<MyOrder/>}> </Route>
+          <Route path='addreview' element={<AddReview/>}> </Route>
+          <Route path='addproduct' element={<AddProduct/>}> </Route>
+          <Route path='mp' element={<MP/>}> </Route>
+          <Route path='users' element={<Users/>}> </Route>
+          <Route path='paymet' element={<Paymet/>}> </Route>
+                    
+       </Route>
        <Route path='*' element={<NotFoundPage/>}> </Route>
      </Routes>
      <Footer/>

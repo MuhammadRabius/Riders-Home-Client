@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import usePartsById from './../Hooks/usePartsById';
 import { useForm } from "react-hook-form";
@@ -10,18 +10,20 @@ const PlaceOrder = () => {
       const {partsId}=useParams();
       const [part]=usePartsById(partsId);
       const [user]=useAuthState(auth);
+      const [order,setOrder]=useState()
       const { register, handleSubmit } = useForm();
       const onSubmit = data => {
             const userOrderPcs = data.minquentity;
+            setOrder(userOrderPcs);
             const minOrderPsc=part.minimumOrder;
             const maxOrderPsc=part.availableQuantity;
             if(userOrderPcs<minOrderPsc ){
-                  return toast(`Minimum Order For this Product: ${minOrderPsc} Pcs`)
+                  return toast.error(`Minimum Order For this Product: ${minOrderPsc} Pcs`)
                   console.log('checked min')
             }
             
             else if(userOrderPcs>maxOrderPsc){
-                  return toast(`Available Quantity: ${maxOrderPsc} Pcs.Please contact us for your bunk order`)
+                  return toast.error(`Available Quantity: ${maxOrderPsc} Pcs.Please contact us for your bunk order`)
                   console.log('checked max')
             }
 

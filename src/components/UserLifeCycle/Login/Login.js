@@ -30,7 +30,7 @@ const Login = () => {
            setPassword(event.target.value);
            
       }
-      const from = location.state?.from?.pathname ||'/';
+      let from = location.state?.from?.pathname ||'/';
 
       const handleSubmit=async(event)=>{
            event.preventDefault()

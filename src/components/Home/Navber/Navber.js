@@ -18,6 +18,11 @@ const Navber = () => {
                   <Nav.Link as={Link} to='/motorparts'>Motor Parts</Nav.Link>
                   <Nav.Link as={Link} to='/blog'>Blog</Nav.Link>
                   <Nav.Link as={Link} to='/myportfolio'>My Protfolio</Nav.Link>
+
+                  {
+                        user&& 
+                         <Nav.Link as={Link} to='/dashboard'>Dashboard</Nav.Link>
+                  }
             </Nav>
             {
                               user?
