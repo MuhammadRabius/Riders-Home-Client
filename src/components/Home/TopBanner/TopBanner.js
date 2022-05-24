@@ -4,8 +4,11 @@ import React from 'react';
 import { AiFillPhone,AiTwotoneMail,AiOutlineUserAdd,AiOutlineCustomerService } from "react-icons/ai";
 import logo from '../../../assets/logo.png'
 import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 const TopBanner = () => {
+      const [user]=useAuthState(auth);
       return (
             <div>
                   <div className='flex justify-around mt-2 font-thin'>
@@ -27,7 +30,13 @@ const TopBanner = () => {
                   <div className=' flex justify-center mt-20 gap-10 '>
                         <div>
                         <AiOutlineUserAdd className='ml-8'/>
-                        <Link to={'/login'} class="link text-black link-hover">My Account</Link>
+                        <Link to={user?`/myprofile`:`/login`} class="link text-black link-hover">
+
+                              {
+                                    user? `${user?.displayName}`:`My Account`
+                              }
+
+                        </Link>
                         </div>
                         
                         <div>

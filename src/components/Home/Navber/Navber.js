@@ -1,8 +1,13 @@
 import React from 'react';
 import { Container, Nav, Navbar} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
+import { signOut } from 'firebase/auth';
 
 const Navber = () => {
+      const [user]=useAuthState(auth);
+      const navigate=useNavigate();
       return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
@@ -14,10 +19,16 @@ const Navber = () => {
                   <Nav.Link as={Link} to='/blog'>Blog</Nav.Link>
                   <Nav.Link as={Link} to='/myportfolio'>My Protfolio</Nav.Link>
             </Nav>
-            <Nav>
-                  
-                  <Nav.Link as={Link} to='/'> Blog </Nav.Link>
-            </Nav>
+            {
+                              user?
+                              <button onClick={()=>{
+                                    signOut(auth)
+                                    navigate('/login');
+                              
+                              }} className='border-2 rounded-lg p-2 mx-2 text-black hover:bg-blue-400 '>Sing Out</button>
+                              :
+                              <Nav.Link className='border-2 rounded-lg p-2 mx-2 text-black hover:bg-blue-400 ' as={Link} to='/login'>Login</Nav.Link>
+                        }
             </Navbar.Collapse>
             </Container>
             </Navbar>

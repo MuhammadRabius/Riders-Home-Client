@@ -13,7 +13,7 @@ import MyPortfolio from './components/MyPortfolio/MyPortfolio';
 import Login from './components/UserLifeCycle/Login/Login';
 import Registation from './components/UserLifeCycle/Registation/Registation';
 import CustomerHelp from './components/CustomerHelp/CustomerHelp';
-
+import { ToastContainer } from 'react-toastify';
 function App() {
   return (
     <div >
@@ -31,6 +31,7 @@ function App() {
        <Route path='*' element={<NotFoundPage/>}> </Route>
      </Routes>
      <Footer/>
+     <ToastContainer/>
     </div>
   );
 }
