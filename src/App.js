@@ -23,6 +23,7 @@ import AddProduct from './components/UserDashboard/AddAProduct/AddProduct';
 import MP from './components/UserDashboard/ManageProducts/MP';
 import Users from './components/UserDashboard/User/Users';
 import Paymet from './components/UserDashboard/Payment/Paymet';
+import ManageAllOrders from './components/UserDashboard/ManageAllOrders/ManageAllOrders';
 function App() {
   return (
     <div >
@@ -50,6 +51,7 @@ function App() {
           <Route path='mp' element={<MP/>}> </Route>
           <Route path='users' element={<Users/>}> </Route>
           <Route path='paymet' element={<Paymet/>}> </Route>
+          <Route path='manageallorders' element={<ManageAllOrders/>}> </Route>
                     
        </Route>
        <Route path='*' element={<NotFoundPage/>}> </Route>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import usePartsById from './../Hooks/usePartsById';
 import { useForm } from "react-hook-form";
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -10,8 +10,10 @@ const PlaceOrder = () => {
       const {partsId}=useParams();
       const [part]=usePartsById(partsId);
       const [user]=useAuthState(auth);
+      const navigate=useNavigate()
       const [order,setOrder]=useState()
       const { register, handleSubmit } = useForm();
+      const partName =part.name;
       const onSubmit = (data,part) => {
             const userOrderPcs = data.minquentity;
             setOrder(userOrderPcs);
@@ -21,21 +23,17 @@ const PlaceOrder = () => {
                    email : data.email,
                    name : data.name,
                    phone: data.phone,
-                   partName:part.name,
+                   partsName:data.partsname,
                    order:userOrderPcs
                   
             }
-            if(userOrderPcs<minOrderPsc ){
+            if(userOrderPcs<minOrderPsc  ){
                   return toast.error(`Minimum Order For this Product: ${minOrderPsc} Pcs`)
                   
             }
             
-            else if(userOrderPcs>maxOrderPsc){
-                  return toast.error(`Available Quantity: ${maxOrderPsc} Pcs.Please contact us for your bunk order`)
-                  
-            }
-
-            else{
+          
+            else {
                   
               fetch('https://limitless-woodland-16405.herokuapp.com/placeorder',
                {
@@ -44,7 +42,7 @@ const PlaceOrder = () => {
                         'content-type': 'application/json'
                         
                   },
-                  body: JSON.stringify({userOrder})
+                  body: JSON.stringify(userOrder)
             })
             .then(res=>res.json())
             .then(data=>{
@@ -56,7 +54,7 @@ const PlaceOrder = () => {
                     toast.error(`Try Again`)
                 }
                 ;
-                
+                navigate('/dashboard/myorder')
             })
 
             }
@@ -90,6 +88,7 @@ const PlaceOrder = () => {
                               <form className='  flex flex-col  gap-2 mt-4' onSubmit={handleSubmit(onSubmit)}>
                               <input type="email" name="email" value={user?.email} id="email" className='border-2 p-2' {...register("email")} readOnly/>
                               <input type="text" name="name" value={user?.displayName} id="name" className='border-2 p-2' {...register("name")} readOnly/>
+                              <input type="text" name="partsname" value={partName} id="partsname" className='border-2 p-2' {...register("partsname")} readOnly/>
                               <input className='border-2 p-2' type="number" {...register("minquentity")} required placeholder='Please Order Quantity'/>
                               <input className='border-2 p-2' type="text" {...register("phone")} required placeholder='Your Phone Number'/>
                               <input className=' p-2 bg-accent text-white' type="submit" value='Purchase Now' />

@@ -11,7 +11,7 @@ const Tools = () => {
                   
                   <div className=' grid grid-cols-1 lg:grid-cols-3 justify-center items-center m-4 p-2 gap-2 '>
                   {
-                   parts.slice(3,6).map(part=><Parts key={part._id} part={part}></Parts>)
+                   parts.map(part=><Parts key={part._id} part={part}></Parts>)
                   }
                   </div>
                   
