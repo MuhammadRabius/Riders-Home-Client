@@ -24,6 +24,7 @@ import MP from './components/UserDashboard/ManageProducts/MP';
 import Users from './components/UserDashboard/User/Users';
 import Paymet from './components/UserDashboard/Payment/Paymet';
 import ManageAllOrders from './components/UserDashboard/ManageAllOrders/ManageAllOrders';
+import ProfileModal from './components/UserDashboard/MyProfile/ProfileModal';
 function App() {
   return (
     <div >
@@ -52,6 +53,7 @@ function App() {
           <Route path='users' element={<Users/>}> </Route>
           <Route path='paymet' element={<Paymet/>}> </Route>
           <Route path='manageallorders' element={<ManageAllOrders/>}> </Route>
+          <Route path='profilemodal' element={<ProfileModal/>}> </Route>
                     
        </Route>
        <Route path='*' element={<NotFoundPage/>}> </Route>

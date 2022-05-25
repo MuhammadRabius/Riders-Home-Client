@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import ProfileModal from './ProfileModal';
+import { useNavigate } from 'react-router-dom';
 
 const MyProfile = () => {
       const [user]=useAuthState(auth);
       console.log(user);
+      const navigate = useNavigate()
       return (
             <div className='gap-2'>
                  <h1 className=' text-accent font-extrabold '>My Profile!</h1>
@@ -21,18 +24,20 @@ const MyProfile = () => {
                               </>
                         }
                         <div class="card-actions">
-                              <button class="btn btn-accent">Update Profile</button>
+                              <label htmlFor="profile-modal" class="btn modal-button" onClick={()=>navigate('/dashboard/profilemodal')} >Update Profile</label>                       
                         </div>
+                       
+
                         </div>
                         </div>
                         </div>
                        <div class="avatar">
-                              <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                              <img className='w-full' src={user?`${user.photoURL}`:`https://ibb.co/0Z898qL`} alt=''/>
+                              <div class="w-full rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                              <img  src={user?`${user.photoURL}`:`https://ibb.co/0Z898qL`} alt=''/>
                               </div>
                         </div>
 
-                        
+            
                  </div>
         </div>
       );

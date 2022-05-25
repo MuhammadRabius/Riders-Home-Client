@@ -12,27 +12,28 @@ const PlaceOrder = () => {
       const [user]=useAuthState(auth);
       const navigate=useNavigate()
       const [order,setOrder]=useState()
-      const { register, handleSubmit } = useForm();
-      const partName =part.name;
-      const onSubmit = (data,part) => {
+      const { register,formState: { errors }, handleSubmit } = useForm();
+     
+      const onSubmit = (data) => {
             const userOrderPcs = data.minquentity;
             setOrder(userOrderPcs);
             const minOrderPsc=part.minimumOrder;
             const maxOrderPsc=part.availableQuantity;
+           
             const userOrder ={
                    email : data.email,
                    name : data.name,
                    phone: data.phone,
-                   partsName:data.partsname,
+                   partsName:data.partsName,
                    order:userOrderPcs
                   
             }
-            if(userOrderPcs<minOrderPsc  ){
+           
+            if(userOrderPcs < minOrderPsc  ){
                   return toast.error(`Minimum Order For this Product: ${minOrderPsc} Pcs`)
                   
             }
             
-          
             else {
                   
               fetch('https://limitless-woodland-16405.herokuapp.com/placeorder',
@@ -88,8 +89,10 @@ const PlaceOrder = () => {
                               <form className='  flex flex-col  gap-2 mt-4' onSubmit={handleSubmit(onSubmit)}>
                               <input type="email" name="email" value={user?.email} id="email" className='border-2 p-2' {...register("email")} readOnly/>
                               <input type="text" name="name" value={user?.displayName} id="name" className='border-2 p-2' {...register("name")} readOnly/>
-                              <input type="text" name="partsname" value={partName} id="partsname" className='border-2 p-2' {...register("partsname")} readOnly/>
-                              <input className='border-2 p-2' type="number" {...register("minquentity")} required placeholder='Please Order Quantity'/>
+                              <input type="text" name="name2" placeholder='Please write product name' id="name2" className='border-2 p-2' {...register("partsName")} required />
+                              <input className='border-2 p-2' type="number" {...register("minquentity" ,{ min:`{part.minimumOrder}`, max: `${part.availableQuantity}` } )} required placeholder='Please Order Quantity'  />
+                               {errors.minquentity?.type === 'min' && "Please Maintain Min Order"}
+                               {errors.minquentity?.type === 'max' && "Please Maintain Max Order"}
                               <input className='border-2 p-2' type="text" {...register("phone")} required placeholder='Your Phone Number'/>
                               <input className=' p-2 bg-accent text-white' type="submit" value='Purchase Now' />
                               </form>

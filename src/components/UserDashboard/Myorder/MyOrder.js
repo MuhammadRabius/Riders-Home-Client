@@ -27,6 +27,7 @@ const MyOrder = () => {
                               <th>Product Name</th>
                               <th>Quantity(Psc)</th>
                               <th>Payment States</th>
+                              <th></th>
                               <th>Transaction</th>
                               <th>Comment/Query</th>
                               </tr>
