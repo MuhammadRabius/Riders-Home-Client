@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import ProfileModal from './ProfileModal';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import useUpdateUser from '../../Hooks/useUpdateUser';
 
 const MyProfile = () => {
       const [user]=useAuthState(auth);
-      console.log(user);
-      const navigate = useNavigate()
+      const navigate = useNavigate();
+      const [updateUser] = useUpdateUser();
+      console.log(updateUser)
       return (
             <div className='gap-2'>
                  <h1 className=' text-accent font-extrabold '>My Profile!</h1>
@@ -23,6 +25,17 @@ const MyProfile = () => {
                               
                               </>
                         }
+                         {
+                               updateUser.map(u=>
+                                     <div>
+                                          <p>Education : {u?`${u.education}`:' '}</p>
+                                          <p>Address : {u?`${u.address}`:' '}</p>
+                                          <p>Phone : {u?`${u.phone}`:' '}</p>
+                                          <a>Social Profile : {u?`${u.social}`:' '}</a>
+                                     </div>
+                                    )
+                         }
+                         
                         <div class="card-actions">
                               <label htmlFor="profile-modal" class="btn modal-button" onClick={()=>navigate('/dashboard/profilemodal')} >Update Profile</label>                       
                         </div>
@@ -33,7 +46,7 @@ const MyProfile = () => {
                         </div>
                        <div class="avatar">
                               <div class="w-full rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                              <img  src={user?`${user.photoURL}`:`https://ibb.co/0Z898qL`} alt=''/>
+                              <img  src={user?`${user?.photoURL}`:`https://ibb.co/0Z898qL`} alt=''/>
                               </div>
                         </div>
 

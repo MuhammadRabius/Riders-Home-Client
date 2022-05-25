@@ -90,7 +90,7 @@ const PlaceOrder = () => {
                               <input type="email" name="email" value={user?.email} id="email" className='border-2 p-2' {...register("email")} readOnly/>
                               <input type="text" name="name" value={user?.displayName} id="name" className='border-2 p-2' {...register("name")} readOnly/>
                               <input type="text" name="name2" placeholder='Please write product name' id="name2" className='border-2 p-2' {...register("partsName")} required />
-                              <input className='border-2 p-2' type="number" {...register("minquentity" ,{ min:`{part.minimumOrder}`, max: `${part.availableQuantity}` } )} required placeholder='Please Order Quantity'  />
+                              <input className='border-2 p-2' type="number" {...register("minquentity" ,{ min:`${part.minimumOrder}`, max: `${part.availableQuantity}` } )} required placeholder='Please Order Quantity'  />
                                {errors.minquentity?.type === 'min' && "Please Maintain Min Order"}
                                {errors.minquentity?.type === 'max' && "Please Maintain Max Order"}
                               <input className='border-2 p-2' type="text" {...register("phone")} required placeholder='Your Phone Number'/>
