@@ -12,11 +12,19 @@ const PlaceOrder = () => {
       const [user]=useAuthState(auth);
       const [order,setOrder]=useState()
       const { register, handleSubmit } = useForm();
-      const onSubmit = data => {
+      const onSubmit = (data,part) => {
             const userOrderPcs = data.minquentity;
             setOrder(userOrderPcs);
             const minOrderPsc=part.minimumOrder;
             const maxOrderPsc=part.availableQuantity;
+            const userOrder ={
+                   email : data.email,
+                   name : data.name,
+                   phone: data.phone,
+                   partName:part.name,
+                   order:userOrderPcs
+                  
+            }
             if(userOrderPcs<minOrderPsc ){
                   return toast.error(`Minimum Order For this Product: ${minOrderPsc} Pcs`)
                   
@@ -28,9 +36,33 @@ const PlaceOrder = () => {
             }
 
             else{
-                     
+                  
+              fetch('https://limitless-woodland-16405.herokuapp.com/placeorder',
+               {
+                  method: 'POST',
+                  headers: {
+                        'content-type': 'application/json'
+                        
+                  },
+                  body: JSON.stringify({userOrder})
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                 
+                  if(data){
+                    toast.success(`Order Placed. Please make payment to confirmed ${userOrderPcs} Psc`)
+                }
+                else{
+                    toast.error(`Try Again`)
+                }
+                ;
+                
+            })
+
             }
-      };
+            
+            };
+      
     
       return (
             
@@ -58,7 +90,8 @@ const PlaceOrder = () => {
                               <form className='  flex flex-col  gap-2 mt-4' onSubmit={handleSubmit(onSubmit)}>
                               <input type="email" name="email" value={user?.email} id="email" className='border-2 p-2' {...register("email")} readOnly/>
                               <input type="text" name="name" value={user?.displayName} id="name" className='border-2 p-2' {...register("name")} readOnly/>
-                              <input className='border-2 p-2' type="number" {...register("minquentity")}  placeholder='Please Order Quantity'/>
+                              <input className='border-2 p-2' type="number" {...register("minquentity")} required placeholder='Please Order Quantity'/>
+                              <input className='border-2 p-2' type="text" {...register("phone")} required placeholder='Your Phone Number'/>
                               <input className=' p-2 bg-accent text-white' type="submit" value='Purchase Now' />
                               </form>
                         </div>
