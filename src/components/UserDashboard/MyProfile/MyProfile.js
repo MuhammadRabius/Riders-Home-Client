@@ -11,7 +11,7 @@ const MyProfile = () => {
       const [updateUser] = useUpdateUser();
       console.log(updateUser)
       return (
-            <div className='gap-2'>
+            <div className='gap-2 m-6'>
                  <h1 className=' text-accent font-extrabold '>My Profile!</h1>
                  <div className='lg:flex justify-center items-center gap-10 m-10 p-6 '>
                        <div>
