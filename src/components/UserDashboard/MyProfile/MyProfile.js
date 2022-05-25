@@ -8,7 +8,7 @@ import useUpdateUser from '../../Hooks/useUpdateUser';
 const MyProfile = () => {
       const [user]=useAuthState(auth);
       const navigate = useNavigate();
-      const [updateUser] = useUpdateUser();
+      const [updateUser] = useUpdateUser(user);
       console.log(updateUser)
       return (
             <div className='gap-2 m-6'>
@@ -22,19 +22,14 @@ const MyProfile = () => {
                               <h2 class="card-title">Mr/Mrs<span className='text-emerald-500 font-bold'> {user?.displayName}</span> Peace upon you</h2> 
 
                                <p>Email : {user?.email}</p>
+                               <p>Education : {updateUser?`${updateUser?.education}`:' '}</p>
+                                          <p>Address : {updateUser?`${updateUser?.address}`:' '}</p>
+                                          <p>Phone : {updateUser?`${updateUser?.phone}`:' '}</p>
+                                          <a>Social Profile : {updateUser?`${updateUser.social}`:' '}</a>
                               
                               </>
                         }
-                         {
-                               updateUser.map(u=>
-                                     <div>
-                                          <p>Education : {u?`${u.education}`:' '}</p>
-                                          <p>Address : {u?`${u.address}`:' '}</p>
-                                          <p>Phone : {u?`${u.phone}`:' '}</p>
-                                          <a>Social Profile : {u?`${u.social}`:' '}</a>
-                                     </div>
-                                    )
-                         }
+                         
                          
                         <div class="card-actions">
                               <label htmlFor="profile-modal" class="btn modal-button" onClick={()=>navigate('/dashboard/profilemodal')} >Update Profile</label>                       
