@@ -14,7 +14,7 @@ const MyOrder = () => {
       },[user])
       
       return (
-            <div className='m-4 p-2'>
+            <div className='m-4 p-4'>
                   <h3 className='font-thin ml-2 text-emerald-500'>Your Order</h3>
                   <div class="overflow-x-auto">
                         <table class="table table-zebra w-full">
@@ -41,6 +41,7 @@ const MyOrder = () => {
                               <td>{order.partsName}</td>
                               <td>{order.order}</td>
                               <td><button class="btn btn-outline  btn-accent">Make Payment</button></td>
+                              <td><button class="btn btn-outline  btn-accent">Cancel Order</button></td>
                               <td></td>
                               <td>pending</td>
                               </tr>)
