@@ -29,6 +29,7 @@ const Navber = () => {
                               <button onClick={()=>{
                                     signOut(auth)
                                     navigate('/login');
+                                    localStorage.removeItem('accessToken');
                               
                               }} className='border-2 rounded-lg p-2 mx-2 text-black hover:bg-blue-400 '>Sing Out</button>
                               :

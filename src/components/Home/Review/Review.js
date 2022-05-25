@@ -3,7 +3,7 @@ import bg from '../../../assets/reviewBg.jpg'
 const Review = () => {
       const [reviews,setReview]=useState([]);
       useEffect(()=>{
-            fetch('http://localhost:5000/review')
+            fetch('https://limitless-woodland-16405.herokuapp.com/review')
             .then(res=>res.json())
             .then(data=>setReview(data))
 
@@ -18,7 +18,7 @@ const Review = () => {
                   <div class="card w-96 gap-4  shadow-xl">     
                   <div class="card-body bg-teal-50 p-4">
                   <h2 className="card-subtitle font-thin">OUR HAPPY CLIENT</h2>
-                  <p className='font-extralight'>{review.review}</p>
+                  <p className='font-extralight'>{review.review}...</p>
                   <p className='font-extralight'>Rating {review.rating} of 5 </p>
                   <h4 className="card-subtitle mb-4">{review.name}</h4>
                   </div>

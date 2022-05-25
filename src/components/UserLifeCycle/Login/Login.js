@@ -5,6 +5,7 @@ import { useSignInWithEmailAndPassword,useSendPasswordResetEmail, useSendEmailVe
 import auth from '../../../firebase.init';
 import GoogleLogin from '../GoogleLogin/GoogleLogin';
 import { toast } from 'react-toastify';
+import useToken from '../../Hooks/useTokem';
 
 
 const Login = () => {
@@ -21,28 +22,26 @@ const Login = () => {
       const [sendEmailVerification] = useSendEmailVerification(auth);
 
       const handleEmail =event=>{
-            
             setEmail(event.target.value);
-           
       }
       const handPassword =(event)=>{
-            
-           setPassword(event.target.value);
+       setPassword(event.target.value);
            
       }
       let from = location.state?.from?.pathname ||'/';
-
+      const [token]=useToken(user);
+      if(token){
+            navigate(from);
+            
+      }
       const handleSubmit=async(event)=>{
            event.preventDefault()
-           if(!user){
-            signInWithEmailAndPassword(email,password);
+           
+           signInWithEmailAndPassword(email,password);
            await sendEmailVerification(email);
-           navigate(from);
            toast.success('Welcome Back,Great to See You Again')
-           }
-           else{
-                 setError('Please make sure your email and Password')
-           }
+         
+           
       }
       return (
            <div className='login-container'>

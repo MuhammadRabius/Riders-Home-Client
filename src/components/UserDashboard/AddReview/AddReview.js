@@ -16,7 +16,7 @@ const AddReview = () => { const [user]=useAuthState(auth);
                   rating:data.rating,
                   
             }
-            const url = `http://localhost:5000/addreview`;
+            const url = `https://limitless-woodland-16405.herokuapp.com/addreview`;
         fetch(url, {
             method: 'POST',
             headers: {
