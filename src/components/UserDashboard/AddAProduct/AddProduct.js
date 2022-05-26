@@ -11,7 +11,7 @@ const AddProduct = () => {
       const { register, handleSubmit } = useForm();
       const onSubmit = (data) => {
             console.log(data)
-            const url = `http://localhost:5000/parts`;
+        const url = `http://localhost:5000/parts`;
         fetch(url, {
             method: 'POST',
             headers: {
