@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useState } from 'react';
 
@@ -16,7 +16,7 @@ const Registation = () => {
       
       const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
       const navigate=useNavigate();
-      
+      const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
       const handleName=(e)=>{
             setName(e.target.value)
@@ -27,10 +27,11 @@ const Registation = () => {
       const handlePassword=(e)=>{
             setPassword(e.target.value);
       }
-      const handleRegisterForm=(event)=>{
+      const handleRegisterForm=async(event)=>{
             event.preventDefault();
 
-            createUserWithEmailAndPassword(email,password);
+            await createUserWithEmailAndPassword(email,password);
+            await updateProfile({ displayName: name });
             event.target.reset();
             navigate('/login');
       }

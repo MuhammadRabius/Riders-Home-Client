@@ -8,7 +8,7 @@ const MP = () => {
       const navigate =useNavigate();
       const handleDeleteProduct=(id)=>{
         alert('Do you want to delete product');
-        const url = `http://localhost:5000/parts/${id}`;
+        const url = `https://limitless-woodland-16405.herokuapp.com/parts/${id}`;
         fetch(url, {
             method: 'DELETE',
             headers: {

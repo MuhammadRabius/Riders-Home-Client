@@ -5,7 +5,7 @@ const UserRow = ({ user, refetch }) => {
     const { email, role } = user;
     const makeAdmin = () => {
          
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://limitless-woodland-16405.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -27,7 +27,7 @@ const UserRow = ({ user, refetch }) => {
     
     const handledelete=()=>{
 
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://limitless-woodland-16405.herokuapp.com/user/admin/${email}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

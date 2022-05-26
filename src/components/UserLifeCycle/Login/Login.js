@@ -67,7 +67,7 @@ const Login = () => {
                         <p className='flex items-center text-1xl'>Create New Account?<Nav.Link as={Link} to='/registation'>Register Now</Nav.Link></p>
                         <p className='flex items-center text-1xl'>Forgot Password<Nav.Link onClick={
                               async()=>{
-                              await sendPasswordResetEmail(auth)
+                              await sendPasswordResetEmail(email)
                               alert('Reset-Password Sent')
                               } } >Reset Password</Nav.Link></p>
                         <p>{error}</p>

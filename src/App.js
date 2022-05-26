@@ -51,7 +51,7 @@ function App() {
           <Route path='addproduct' element={<AddProduct/>}> </Route>
           <Route path='mp' element={<MP/>}> </Route>
           <Route path='users' element={<Users/>}> </Route>
-          <Route path='paymet' element={<Paymet/>}> </Route>
+          <Route path='paymet/:id' element={<Paymet/>}> </Route>
           <Route path='manageallorders' element={<ManageAllOrders/>}> </Route>
           <Route path='profilemodal' element={<ProfileModal/>}> </Route>
                     
