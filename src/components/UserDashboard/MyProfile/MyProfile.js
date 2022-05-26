@@ -22,10 +22,10 @@ const MyProfile = () => {
                               <h2 class="card-title">Mr/Mrs<span className='text-emerald-500 font-bold'> {user?.displayName}</span> Peace upon you</h2> 
 
                                <p>Email : {user?.email}</p>
-                               <p>Education : {updateUser?`${updateUser?.education}`:' '}</p>
-                                          <p>Address : {updateUser?`${updateUser?.address}`:' '}</p>
-                                          <p>Phone : {updateUser?`${updateUser?.phone}`:' '}</p>
-                                          <a>Social Profile : {updateUser?`${updateUser.social}`:' '}</a>
+                               <p>Education : {updateUser?.education}</p>
+                                          <p>Address : {updateUser?.address}</p>
+                                          <p>Phone : {updateUser?.phone}</p>
+                                          <a>Social Profile : {updateUser?.social}</a>
                               
                               </>
                         }

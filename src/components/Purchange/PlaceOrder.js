@@ -13,19 +13,25 @@ const PlaceOrder = () => {
       const navigate=useNavigate()
       const [order,setOrder]=useState()
       const { register,formState: { errors }, handleSubmit } = useForm();
-     
-      const onSubmit = (data) => {
+      const price =part.price;
+       console.log(price)
+      const onSubmit = (data,price) => {
             const userOrderPcs = data.minquentity;
-            setOrder(userOrderPcs);
+            const orderPcs =parseInt(userOrderPcs);
+            
             const minOrderPsc=part.minimumOrder;
             const maxOrderPsc=part.availableQuantity;
            
+          ;
+            let totalPrice =price + userOrderPcs;
+            console.log(totalPrice)
             const userOrder ={
                    email : data.email,
                    name : data.name,
                    phone: data.phone,
                    partsName:data.partsName,
-                   order:userOrderPcs
+                   order:userOrderPcs,
+                   amount:totalPrice
                   
             }
            
@@ -47,7 +53,7 @@ const PlaceOrder = () => {
             })
             .then(res=>res.json())
             .then(data=>{
-                 
+                
                   if(data){
                     toast.success(`Order Placed. Please make payment to confirmed ${userOrderPcs} Psc`)
                 }

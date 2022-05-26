@@ -1,14 +1,48 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../../firebase.init';
+import { useQuery } from 'react-query';
+import Loading from '../../UserLifeCycle/Loading/Loading';
+import UserRow from './UserRow';
+
 
 const Users = () => {
-      const [user]=useAuthState(auth);
-      return (
-            <div>
-                 <h1>this is user section</h1> 
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
+        method: 'GET',
+        headers:{
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res => res.json()));
+    if (isLoading) {
+        return <Loading></Loading>
+    }
+    console.log(users)
+    return (
+        <div>
+            <h1 className=' text-accent font-extrabold '>All Users: {users.length}!</h1>
+            
+            <h2 className="text-2xl"></h2>
+            <div class="overflow-x-auto">
+                <table class="table w-full">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       {
+                           users.map(user=><UserRow
+                           key={user._id}
+                           user={user}
+                           refetch={refetch}
+                           ></UserRow>)
+                       }
+                    </tbody>
+                </table>
             </div>
-      );
+        </div>
+    );
 };
 
 export default Users;
