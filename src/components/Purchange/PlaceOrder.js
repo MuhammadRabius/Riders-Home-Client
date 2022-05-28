@@ -14,9 +14,10 @@ const PlaceOrder = () => {
       const [order,setOrder]=useState()
       const { register,formState: { errors }, handleSubmit } = useForm();
       const price =part.price;
-       console.log(price)
+      const orderPartsId =part._id;
+            
       const onSubmit = (data) => {
-            const userOrderPcs = data.minquentity;
+      const userOrderPcs = data.minquentity;
             
            
           ;
@@ -28,8 +29,9 @@ const PlaceOrder = () => {
                    phone: data.phone,
                    partsName:data.partsName,
                    order:userOrderPcs,
-                   amount:totalPrice
-                  
+                   amount:totalPrice,
+                   orderPartsId:orderPartsId,
+                   
             }
            
            

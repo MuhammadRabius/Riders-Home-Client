@@ -22,23 +22,23 @@ const Paymet = () => {
             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => res.json()));
-
+    console.log(paymentOrder);
     if (isLoading) {
         return <Loading></Loading>
     }
       return (
-            <div>
+            <div className='lg:flex lg:justify-center lg:items-center mx-auto'>
                   {/* <h1>This is Payment Section: {id}</h1> */}
-                  <div class="card w-50 max-w-md bg-base-100 shadow-xl my-12">
+            <div class="card w-50 max-w-md bg-base-100 shadow-xl my-12">
                 <div class="card-body">
                     <p className="text-success font-bold">Hello, {user?.displayName}</p>
                     <h2 class="card-title">Please Pay for {paymentOrder.partsName}</h2>
                     <p>Your Total Order Quantity: <span className='text-orange-700'>{paymentOrder.order}</span></p>
                     <p>Please pay: ${paymentOrder.amount}</p>
-                </div>
             </div>
-            <div class="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
-                <div class="card-body">
+            </div>
+            <div class="card flex-shrink-0 w-50 m-4 max-w-md shadow-2xl bg-base-100">
+                <div class="card-body ">
                     <Elements stripe={stripePromise}>
                         <CheckoutForm paymentOrder={paymentOrder} />
                     </Elements>

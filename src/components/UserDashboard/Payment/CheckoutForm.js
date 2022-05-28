@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
 const CheckoutForm = ({paymentOrder}) => {
-      console.log(paymentOrder);
+    
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
@@ -10,8 +10,8 @@ const CheckoutForm = ({paymentOrder}) => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('');
-
-    const { _id,amount, name,email, partsName } = paymentOrder;
+    let states ='Waiting for shipment';
+    const { _id,amount, name,email, orderPartsId,partsName } = paymentOrder;
 
     useEffect(() => {
           if(amount){
@@ -84,7 +84,9 @@ const CheckoutForm = ({paymentOrder}) => {
             const payment = {
                 PartsOrder: _id,
                 transactionId: paymentIntent.id,
-                
+                orderPartsId:orderPartsId,
+                states:states,
+                partsName:partsName
             }
             fetch(`https://limitless-woodland-16405.herokuapp.com/get-payment/${_id}`, {
                 method: 'PATCH',

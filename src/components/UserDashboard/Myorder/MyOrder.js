@@ -86,6 +86,7 @@ const MyOrder = () => {
                                     
                                    </td>
                               <td>{order.transactionId}</td>
+                              <td>{order.states}</td>
                               
                               </tr>)
                               }                                                        
