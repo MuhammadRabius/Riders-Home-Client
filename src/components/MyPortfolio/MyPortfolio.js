@@ -3,16 +3,16 @@ import React from 'react';
 
 const MyPortfolio = () => {
     return (
-        <div className='mx-auto container'>
-            <h2 className='text-center font-semibold text-3xl'>Md. Amit Hasan</h2>
-            <p className='text-center'>bhamithasan@gmail.com</p>
+        <div className='mx-auto container m-4'>
+            <h2 className='text-center font-semibold text-3xl'>Muhammad Rabiussany</h2>
+            <p className='text-center'>muhammadrabiussany@gmail.com</p>
 
             <h4 className='text-secondary text-xl my-5'>Educational Background</h4>
             <p>
                 BSc (Honors) In Computer Science & Engineering
-                University Of Development Alternative
-                Duration: 2017-2021
-                CGPA: 3.99
+                Daffodil International University
+                Duration: 2018-2021
+                CGPA: 3.30
             </p>
 
             <h4 className='text-secondary text-xl my-5'>
@@ -30,11 +30,11 @@ const MyPortfolio = () => {
                 Projects
             </h4>
             <p className='mt-5'>
-                <b>Inventory Management</b> <br />
+                <b>SPLAB Inventory Management</b> <br />
 
-                <a href="">Live Site</a><br />
-                <a href="">GitHub-Client</a><br />
-                <a href="">GitHub-Server</a><br />
+                <a href="https://splab-87a88.web.app/">Live Site</a><br />
+                <a href="https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-MuhammadRabius.git">GitHub-Client</a><br />
+                <a href="https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-MuhammadRabius.git">GitHub-Server</a><br />
                 ● Users can observe the stock of every product, the last imported product’s list, the last sale <br />
                 product’s list, and update the stock amount easily. <br />
                 ● Users can easily add new product items in add a product section. <br />
@@ -47,10 +47,10 @@ const MyPortfolio = () => {
             </p>
 
             <p className='mt-5'>
-                <b>Hasan Hijama Services</b> <br />
+                <b>Hakim Tayen Uz-Zaman Service</b> <br />
 
-                <a href="">Live Site</a> <br />
-                <a href="">GitHub-Client</a> <br />
+                <a href="https://hakim-tayen-uz-zaman.firebaseapp.com/">Live Site</a> <br />
+                <a href="https://github.com/programming-hero-web-course-4/independent-service-provider-MuhammadRabius.git">GitHub-Client</a> <br />
 
                 ● Users can see the services the service provider provides <br />
                 ● Secure Authentication System with email-based login and social login like Google, GitHub <br />
