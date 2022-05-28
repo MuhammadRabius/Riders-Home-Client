@@ -4,17 +4,18 @@ import usePaymentInfo from '../../Hooks/usePaymentInfo';
 import { toast } from 'react-toastify';
 
 const ManageAllOrders = () => {
-      const [payment]=usePaymentInfo();
+      const [payment,,fetchPayment]=usePaymentInfo();
       console.log(payment);
       const id = payment.orderPartsId
-      const handleShipment=()=>{
+      
+      const handleShipment=(id)=>{
             const states = 'Shipped'
             const  updateShippemt ={
                   states:states,
                  
             }
 
-        const url = `http://localhost:5000/update-states-parts`;
+        const url = `https://limitless-woodland-16405.herokuapp.com/update-states-parts/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -26,7 +27,8 @@ const ManageAllOrders = () => {
         .then(res=> res.json())
         .then(result =>{
         console.log(result)
-      //   toast('Successfully Delete');
+        fetchPayment();
+        toast('Product has been shipped');
         }, )
        
 
@@ -57,7 +59,7 @@ const ManageAllOrders = () => {
                                     payment.map((p,index)=>
                                           <tr key={p._id}>
                               <th>{index + 1}</th>
-                              <td>{p.name}</td>
+                              <td>{p.orderPartsId}</td>
                               <td>{p.transactionId}</td>
 
                               {/* {(p.transactionId && p.states) && 
@@ -71,7 +73,7 @@ const ManageAllOrders = () => {
 
 
                               <td className='font-bold'>{p.states}</td>
-                              <td><button onClick={()=>handleShipment()} class="btn btn-outline  btn-accent">Make Shipment</button></td>
+                              <td><button onClick={()=>handleShipment(p._id)} class="btn btn-outline  btn-accent">Make Shipment</button></td>
                               <td></td>
                               
                               </tr>)
