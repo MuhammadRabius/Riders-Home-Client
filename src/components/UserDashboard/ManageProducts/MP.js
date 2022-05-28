@@ -31,9 +31,9 @@ const MP = () => {
       };
       
       return (
-            <div className='gap-4 m-4 p-2' >
+            <div className=' m-4 p-2' >
                   
-                        <div className='grid grid-cols-1 lg:grid-cols-3 '>
+                        <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 '>
                               {
                         parts.map(part=> <div className="card w-96  bg-base-100 shadow-xl">
                               <figure><img style={{height:"200px",width:"200px"}} src={part.img} alt="Shoes" /></figure>

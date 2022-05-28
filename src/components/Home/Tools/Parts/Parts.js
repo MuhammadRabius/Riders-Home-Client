@@ -11,7 +11,7 @@ const Parts = ({part}) => {
       return (
             <div>
                   <div className="card w-96  bg-base-100 shadow-xl">
-                              <figure><img style={{height:"200px",width:"200px"}} src={img} alt="Shoes" /></figure>
+                              <figure><img style={{height:"200px",width:"200px"}} src={img} alt="New Riders Home Product" /></figure>
                               <div class="card-body">
                               <h2 class="card-title">{name}</h2>
                               <p>{description.slice(0,40)}...</p>
