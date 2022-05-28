@@ -83,7 +83,8 @@ const CheckoutForm = ({paymentOrder}) => {
             //store payment on database
             const payment = {
                 PartsOrder: _id,
-                transactionId: paymentIntent.id
+                transactionId: paymentIntent.id,
+                
             }
             fetch(`https://limitless-woodland-16405.herokuapp.com/get-payment/${_id}`, {
                 method: 'PATCH',

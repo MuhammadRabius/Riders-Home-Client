@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const MyOrder = () => {
       const [user]=useAuthState(auth);
@@ -65,9 +65,26 @@ const MyOrder = () => {
                               <td>{order.partsName}</td>
                               <td>{order.order}</td>
                               <td> {order.amount } BDT</td>
-                              <td><button onClick={()=>navigate(`/dashboard/paymet/${order._id}`)} class="btn btn-outline  btn-accent">Make Payment</button></td>
-                              <td><button onClick={()=>handleCancelOrder(order._id)} class="btn btn-outline  btn-accent">Cancel Order</button></td>
-                              <td></td>
+                              <td>
+                                  
+                                    {(order.amount && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}>
+                                          <button className='btn btn-xs btn-accent p-2'>Make Payment</button>
+                                          </Link>}
+                                    
+                                    {(order.amount && order.paid) && <div>
+                                        <p><span className='font-bold text-success'>Paid</span></p>
+                                        
+                                    </div>} 
+                                   
+                                    </td>
+
+                             <td>
+                                     {(order.amount && !order.paid) && 
+                                           <button onClick={()=>handleCancelOrder(order._id)} class="btn btn-outline  btn-accent">Cancel Order</button>
+                                          }
+                                    
+                                   </td>
+                              <td>{order.transactionId}</td>
                               
                               </tr>)
                               }                                                        

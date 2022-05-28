@@ -30,7 +30,7 @@ const TopBanner = () => {
                   <div className=' flex justify-center mt-20 gap-10 '>
                         <div>
                         <AiOutlineUserAdd className='ml-8'/>
-                        <Link to={user?`/myprofile`:`/login`} class="link text-black link-hover">
+                        <Link to={user?`/dashboard`:`/login`} class="link text-black link-hover">
 
                               {
                                     user? `${user?.displayName}`:`My Account`

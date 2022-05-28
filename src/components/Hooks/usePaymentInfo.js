@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 const usePaymentInfo =()=>{
       const [payment,setPayment] =useState([]);
       useEffect(()=>{
-         fetch('https://limitless-woodland-16405.herokuapp.com/get-payment')
+         fetch('http://localhost:5000/payment-info')
          .then(res=>res.json())
          .then(data=>setPayment(data))
       

@@ -3,7 +3,7 @@ import bg from '../../../assets/reviewBg.jpg'
 const Review = () => {
       const [reviews,setReview]=useState([]);
       useEffect(()=>{
-            fetch('https://limitless-woodland-16405.herokuapp.com/review')
+            fetch('http://localhost:5000/review')
             .then(res=>res.json())
             .then(data=>setReview(data))
 

@@ -3,6 +3,7 @@ import usePaymentInfo from '../../Hooks/usePaymentInfo';
 
 const ManageAllOrders = () => {
       const [payment]=usePaymentInfo();
+      console.log(payment);
       return (
             <div className='m-4 p-4'>
                   <h3 className='font-thin ml-2 text-emerald-500'>All Orders</h3>
