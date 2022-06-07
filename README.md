@@ -2,9 +2,13 @@
 
 This project was bootstrapped with [Riders HOME Client](https://github.com/programming-hero-web-course1/manufacturer-website-client-side-MuhammadRabius.git).
 This project Beckend was bootstrapped with [Riders HOME Server](https://github.com/programming-hero-web-course1/manufacturer-website-server-side-MuhammadRabius.git).
-This project Live Link [SPLAB WareHouse Inventory](https://ridershome-75781.web.app/).
+This project Live Link [Riders Home (https://ridershome-75781.web.app/).
 
-## We use HTML,CSS,Tailwind,ReactJs for this project.
+## 	Any normal user can place their orders and can do their payments from my orders page
+	An admin, not a normal user can make any other user an admin from make an admin page
+
+Technology Used: HTML5, CSS3, React Js, Tailwind, Daisy Ui, Node Js, Express Js, MongoDB, Firebase, Stripe
+
 
 
 ### `Create React App for creating Application`
